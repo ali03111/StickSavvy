@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet,  Image, View, Platform} from 'react-native';
+import {StyleSheet, Image, View, Platform} from 'react-native';
 import {TextComponent} from './TextComponent';
 import {Touchable} from './Touchable';
 import {backIcon, filterIcon} from '../Assets';
@@ -22,11 +22,14 @@ const BackHeader = ({
   rightIconStyle,
   rightIcon,
   onRightPress,
-  saveResetText
+  saveResetText,
 }) => {
   return (
     <View style={[styles.TopHeader, {...style}]}>
-    <AppStatusBar backgroundColor={Colors.secondary} barStyle="light-content" />
+      <AppStatusBar
+        backgroundColor={Colors.secondary}
+        barStyle="light-content"
+      />
       <View style={styles.HeaderLeft}>
         <Touchable onPress={goBack} style={styles.backMain} disabled={!isBack}>
           {isBack && (
@@ -71,8 +74,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     // marginTop: Platform.OS == 'ios' ? hp('6') : hp('3'),
     paddingHorizontal: wp('3.5'),
-    paddingBottom: hp('3'),
-    paddingTop: Platform.OS == 'ios' ? hp('6') : hp('3'),
+    // paddingBottom: hp('3'),
+    paddingTop: Platform.OS == 'ios' ? hp('5') : hp('0'),
     height: Platform.OS == 'ios' ? hp('12') : hp('8'),
     alignItems: 'center',
     backgroundColor: Colors.secondary,
@@ -92,7 +95,7 @@ const styles = StyleSheet.create({
     marginLeft: wp('1.5'),
     color: Colors.white,
     fontSize: hp('2'),
-    lineHeight: hp('2')
+    lineHeight: hp('2'),
   },
   HeaderTitle: {
     fontSize: hp('2.5'),
@@ -126,7 +129,6 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
     height: hp('3'),
     marginLeft: wp('2'),
-    
   },
   styleCheck: {
     alignItems: 'center',
@@ -143,7 +145,7 @@ const styles = StyleSheet.create({
     // backgroundColor: 'blue',
     height: hp('5'),
     textAlign: 'center',
-    marginTop: hp('1'),
+    marginTop: hp('1.5'),
     // width: wp('100'),
   },
   HeaderRight: {

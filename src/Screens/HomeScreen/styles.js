@@ -4,28 +4,28 @@ const {StyleSheet, Platform} = require('react-native');
 const {Colors} = require('../../Theme/Variables');
 
 export const styles = StyleSheet.create({
-  homeMain:{
-    backgroundColor: Colors.white
+  homeMain: {
+    backgroundColor: Colors.white,
   },
   headerView: {
     backgroundColor: Colors.secondary,
     width: wp('100'),
-    paddingTop: hp('0'),
+    paddingTop: hp(Platform.OS === 'ios' ? '5' : '0'),
     borderBottomLeftRadius: 25,
     borderBottomRightRadius: 25,
   },
-  subscribeCardMain:  {
+  subscribeCardMain: {
     paddingHorizontal: wp('4'),
     marginTop: hp('4'),
     marginBottom: hp('4'),
   },
-  subscribeCard:{
+  subscribeCard: {
     borderRadius: 15,
-    backgroundColor: Colors.white,  
-    paddingTop: wp('4'),  
+    backgroundColor: Colors.white,
+    paddingTop: wp('4'),
     paddingBottom: wp('3'),
-    paddingHorizontal: wp('4'),  
-    width: wp('92'),    
+    paddingHorizontal: wp('4'),
+    width: wp('92'),
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -35,48 +35,48 @@ export const styles = StyleSheet.create({
     shadowRadius: 3.84,
     elevation: 5,
   },
-  subscribeHeading:{
+  subscribeHeading: {
     color: Colors.secondary,
     fontSize: hp('2.2'),
     fontWeight: '700',
     textTransform: 'capitalize',
-    marginBottom: hp('1')
-  },  
-  flatlistStyleOne:{
+    marginBottom: hp('1'),
+  },
+  flatlistStyleOne: {
     marginTop: hp('3'),
     marginLeft: wp('3'),
-    paddingEnd: wp('2')
+    paddingEnd: wp('2'),
   },
-  certifiedTitle:{
+  certifiedTitle: {
     fontSize: hp('2'),
-    fontWeight:'600',
-    color: Colors.black
+    fontWeight: '600',
+    color: Colors.black,
   },
-  viewAll:{
+  viewAll: {
     color: Colors.gray,
-    fontSize: hp('1.5')
+    fontSize: hp('1.5'),
   },
-  imgStyle:{
+  imgStyle: {
     width: wp('10'),
     height: hp('5'),
-    marginRight: wp('2')
+    marginRight: wp('2'),
   },
-  searchContainer:{
+  searchContainer: {
     paddingHorizontal: wp('4'),
     paddingTop: hp('2'),
-    paddingBottom: hp('0.5'),    
+    paddingBottom: hp('0.5'),
     width: wp('100'),
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
   },
-  certifiedTopStyle:{
+  certifiedTopStyle: {
     paddingHorizontal: wp('4'),
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
   },
-  searchBar:{
+  searchBar: {
     borderColor: Colors.grayBorder,
     borderWidth: 1,
     borderRadius: 15,
@@ -84,18 +84,18 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'flex-start',
     alignItems: 'center',
-    paddingHorizontal: wp('2')
+    paddingHorizontal: wp('2'),
   },
-  searchIconStyle:{
+  searchIconStyle: {
     width: wp('6'),
-    marginRight: wp('2')
+    marginRight: wp('2'),
   },
-  filterIconStyle:{
+  filterIconStyle: {
     width: wp('12'),
     marginLeft: wp('2'),
   },
-  searchText:{
-    color: Colors.lightGray
+  searchText: {
+    color: Colors.lightGray,
   },
   firstView: {
     flexDirection: 'row',
@@ -107,14 +107,14 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: wp('4'),
   },
-  subText:{
+  subText: {
     fontSize: hp('1.6'),
-    color: Colors.white
+    color: Colors.white,
   },
   nameText: {
     fontSize: hp('3'),
     fontWeight: 'bold',
-    color: Colors.white
+    color: Colors.white,
     // marginTop: hp('2.5'),
   },
   notiIcon: {width: wp('7')},
@@ -202,15 +202,15 @@ export const styles = StyleSheet.create({
     marginTop: hp('2'),
     marginLeft: wp('1'),
   },
-  cardBottom:{
+  cardBottom: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',   
+    justifyContent: 'space-between',
   },
-  userStyles:{
-    width: wp('26')
+  userStyles: {
+    width: wp('26'),
   },
-  btnStyle:{
-    width: wp('34')
-  }
+  btnStyle: {
+    width: wp('34'),
+  },
 });

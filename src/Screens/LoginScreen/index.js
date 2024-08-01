@@ -46,14 +46,13 @@ const LoginScreen = ({navigation}) => {
   } = useLogin(navigation);
   return (
     <View style={styles.ImgBg}>
-     
       <LinearGradient
         start={{x: 0.0, y: 0.5}}
         end={{x: 1, y: 1.0}}
         locations={[0.4, 0.8]}
         colors={['#195073', '#266C99']}
         style={styles.linearGradient}></LinearGradient>
-        
+
       <KeyBoardWrapper
         styles={styles.logInMain}
         showsVerticalScrollIndicator={false}>
@@ -92,7 +91,6 @@ const LoginScreen = ({navigation}) => {
               }}
             />
             <View style={styles.rememberSec}>
-             
               <TextComponent
                 text={'Forgot Password?'}
                 styles={styles.forgetText}
@@ -146,7 +144,11 @@ const LoginScreen = ({navigation}) => {
               <Text style={styles.signUpText}>Sign Up</Text>
             </Touchable>
           </View>
-          <Image resizeMode='contain' source={vector} style={styles.vectorImg}/>
+          <Image
+            resizeMode="contain"
+            source={vector}
+            style={styles.vectorImg}
+          />
         </View>
       </KeyBoardWrapper>
     </View>

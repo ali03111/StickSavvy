@@ -1,5 +1,12 @@
 import React, {useCallback, useRef, useState} from 'react';
-import {View, Text, SafeAreaView, Image, FlatList, ScrollView} from 'react-native';
+import {
+  View,
+  Text,
+  SafeAreaView,
+  Image,
+  FlatList,
+  ScrollView,
+} from 'react-native';
 import useReduxStore from '../../Hooks/UseReduxStore';
 
 import useHomeScreen from './useHomeScreen';
@@ -36,6 +43,7 @@ const HomeScreen = ({navigation}) => {
   const renderItemCard = ({item, index}) => {
     return (
       <PhlebotomistsWithCta
+        onPress={() => navigation.navigate('PhlebotomistDetails')}
         cardStyle={{
           backgroundColor: index % 2 == 0 ? Colors.bgLBlue : Colors.bgLPink,
         }}
@@ -48,8 +56,11 @@ const HomeScreen = ({navigation}) => {
   };
   return (
     <>
-      <ScrollView style={styles.homeMain}>
-        <HomeHeader />
+      <HomeHeader settingOnPress={() => navigation.navigate('SettingScreen')} />
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        bounces={false}
+        style={styles.homeMain}>
         <View style={styles.searchContainer}>
           <View style={styles.searchBar}>
             <Image
@@ -87,6 +98,7 @@ const HomeScreen = ({navigation}) => {
           </View>
 
           <FlatList
+            showsHorizontalScrollIndicator={false}
             data={certifiedPhl}
             renderItem={renderItem}
             horizontal
@@ -132,13 +144,14 @@ const HomeScreen = ({navigation}) => {
           </Touchable>
         </View>
         <View style={{marginBottom: hp('2')}}>
-        <FlatList
-          data={certifiedPhlWithCta}
-          renderItem={renderItemCard}
-          horizontal
-          contentContainerStyle={styles.flatlistStyleOne}
-          keyExtractor={item => item.id}
-        />
+          <FlatList
+            data={certifiedPhlWithCta}
+            renderItem={renderItemCard}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={styles.flatlistStyleOne}
+            keyExtractor={item => item.id}
+          />
         </View>
       </ScrollView>
     </>

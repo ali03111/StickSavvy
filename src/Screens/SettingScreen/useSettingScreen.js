@@ -12,6 +12,8 @@ import {Linking} from 'react-native';
  */
 const useSettingScreen = ({navigate, goBack}) => {
   const [alert, setAlert] = useState(false);
+  const [deleteAlert, setDeleteAlert] = useState(false);
+
   const {dispatch} = useReduxStore();
 
   const onConfirm = () => {
@@ -26,8 +28,7 @@ const useSettingScreen = ({navigate, goBack}) => {
   };
   const callLogOut = () => {
     onCancel();
-
-  }
+  };
   const tabScreen = item => {
     // console.log('fir', item);
     if (item?.screenUrl) {
@@ -41,7 +42,30 @@ const useSettingScreen = ({navigate, goBack}) => {
       // console.log('asd asd');
     }
   };
-  return {onCancel, onConfirm, tabScreen, alert, callLogOut};
+  const onDeleteConfirm = () => {
+    setDeleteAlert(false);
+    setTimeout(async () => {
+      await logoutService();
+      dispatch(logOutUser());
+    }, 900);
+  };
+  const onDeleteCancel = () => {
+    setDeleteAlert(!deleteAlert);
+  };
+  const callDelete = () => {
+    onDeleteCancel();
+  };
+  return {
+    onCancel,
+    onConfirm,
+    tabScreen,
+    alert,
+    callLogOut,
+    deleteAlert,
+    setDeleteAlert,
+    onDeleteCancel,
+    callDelete,
+  };
 };
 
 export default useSettingScreen;

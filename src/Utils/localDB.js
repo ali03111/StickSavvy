@@ -363,17 +363,17 @@ export const settingData = [
   {
     title: 'About StickSavvy',
     image: information,
-    pageUrl: 'https://www.greenboom.com/about',
+    pageUrl: 'https://www.StickSavvy.com/about',
   },
   {
     title: 'Privacy Policy',
     image: receiptSearch,
-    pageUrl: 'https://www.greenboom.com/privacy',
+    pageUrl: 'https://www.StickSavvy.com/privacy',
   },
   {
     title: 'Terms and Conditions',
     image: taskSquare,
-    pageUrl: 'https://www.greenboom.com/terms',
+    pageUrl: 'https://www.StickSavvy.com/terms',
   },
   // {
   //   title: 'Contact us',

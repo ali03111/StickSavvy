@@ -34,17 +34,38 @@ function MainNavigator() {
         )}
         {!isLogin && (
           <>
-            {/* <Stack.Screen name="HomeScreen" component={Screens.HomeScreen} /> */}
-            {/* <Stack.Screen name="PhlebotomistDetails" component={Screens.PhlebotomistDetails} /> */}
-            {/* <Stack.Screen name="PhlebotomistProfile" component={Screens.PhlebotomistProfile} /> */}
-       
-            {/* <Stack.Screen name="ReviewAddScreen" component={Screens.ReviewAdd} /> */}
-
-            {/* <Stack.Screen name="SelectScreen" component={Screens.SelectScreen} /> */}
-            {/* <Stack.Screen name="SettingScreen" component={Screens.SeetingScreen} /> */}
-            <Stack.Screen name="ChangePasswordScreen" component={Screens.ChangePassword} />
-            {/* <Stack.Screen name="MyProfileScreen" component={Screens.ProfileScreen} /> */}
             <Stack.Screen name="LoginScreen" component={Screens.LoginScreen} />
+            <Stack.Screen name="HomeScreen" component={Screens.HomeScreen} />
+            <Stack.Screen
+              name="PhlebotomistDetails"
+              component={Screens.PhlebotomistDetails}
+            />
+            <Stack.Screen
+              name="PhlebotomistProfile"
+              component={Screens.PhlebotomistProfile}
+            />
+
+            <Stack.Screen
+              name="ReviewAddScreen"
+              component={Screens.ReviewAdd}
+            />
+
+            <Stack.Screen
+              name="SelectScreen"
+              component={Screens.SelectScreen}
+            />
+            <Stack.Screen
+              name="SettingScreen"
+              component={Screens.SeetingScreen}
+            />
+            <Stack.Screen
+              name="MyProfileScreen"
+              component={Screens.ProfileScreen}
+            />
+            <Stack.Screen
+              name="ChangePasswordScreen"
+              component={Screens.ChangePassword}
+            />
             <Stack.Screen
               name="RegisterScreen"
               component={Screens.RegisterScreen}
@@ -72,7 +93,6 @@ function MainNavigator() {
               name="TrainingScreen"
               component={Screens.TrainingScreen}
             /> */}
-            
           </>
         )}
       </Stack.Navigator>

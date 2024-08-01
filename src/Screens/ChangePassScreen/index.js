@@ -24,15 +24,16 @@ import ThemeButton from '../../Components/ThemeButton';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 const ChangePassword = ({navigation}) => {
-  const [ currentPass, setCurrentPass] = useState('');
-  const [ newPass, setNewPass] = useState('');
-  const [ reTypeNewPass, setReTypeNewPass] = useState('');
+  const [currentPass, setCurrentPass] = useState('');
+  const [newPass, setNewPass] = useState('');
+  const [reTypeNewPass, setReTypeNewPass] = useState('');
   return (
     <>
       {/* <HeaderComponent title={'Settings'} goBack={() => navigation.goBack()}  /> */}
 
       <ScrollView style={styles.container}>
         <BackHeader
+          goBack={() => navigation.goBack()}
           isBack={true}
           headerTitle={'Change Password'}
           saveResetText={'Cancel'}
@@ -54,7 +55,9 @@ const ChangePassword = ({navigation}) => {
               text={'Current Password'}
               styles={styles.userPassStyleLabel}
             />
-            <Touchable style={{...styles.cardBtn, marginBottom: hp('6')}} onPress={() => {}}>
+            <Touchable
+              style={{...styles.cardBtn, marginBottom: hp('6')}}
+              onPress={() => {}}>
               <Image source={locksetting} style={styles.iconStyle} />
               {/* <TextComponent text={'My Profile'} styles={styles.titleStyle} /> */}
               <TextInput
@@ -62,8 +65,8 @@ const ChangePassword = ({navigation}) => {
                 placeholder="********"
                 placeholderTextColor={Colors.black}
                 value={currentPass}
-                onChange={(e) => {
-                  setCurrentPass(e.target.value)
+                onChange={e => {
+                  setCurrentPass(e.target.value);
                   // console.log(currentPass);
                 }}
               />
@@ -85,7 +88,7 @@ const ChangePassword = ({navigation}) => {
                 placeholder="********"
                 placeholderTextColor={Colors.black}
                 value={newPass}
-                onChange={(e) => {
+                onChange={e => {
                   setNewPass(e.target.value);
                 }}
               />
@@ -107,8 +110,8 @@ const ChangePassword = ({navigation}) => {
                 placeholder="********"
                 placeholderTextColor={Colors.black}
                 value={reTypeNewPass}
-                onChange={(e) => {
-                  setReTypeNewPass(e.target.value)
+                onChange={e => {
+                  setReTypeNewPass(e.target.value);
                 }}
               />
 

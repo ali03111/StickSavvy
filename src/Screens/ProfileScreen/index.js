@@ -35,15 +35,17 @@ const ProfileScreen = ({navigation}) => {
     profileData,
     callDelete,
     deleteAlert,
-    onDeleteCancel,onDeleteConfirm
+    onDeleteCancel,
+    onDeleteConfirm,
   } = useProfileScreen(navigation);
 
   return (
     <>
       {/* <HeaderComponent title={'Settings'} goBack={() => navigation.goBack()}  /> */}
-    
+
       <ScrollView style={styles.container}>
         <BackHeader
+          goBack={() => navigation.goBack()}
           isBack={true}
           headerTitle={'Profile'}
           saveResetText={'Cancel'}
@@ -105,7 +107,10 @@ const ProfileScreen = ({navigation}) => {
             </Touchable>
             <Touchable style={styles.cardBtn} onPress={() => {}}>
               <Image source={profile} style={styles.iconStyle} />
-              <TextComponent text={'My Profile'} styles={styles.titleStyle} />
+              <TextComponent
+                text={'dinojames@StickSavvy.com'}
+                styles={styles.titleStyle}
+              />
               <Icon
                 name=""
                 size={25}
@@ -115,7 +120,10 @@ const ProfileScreen = ({navigation}) => {
             </Touchable>
             <Touchable style={styles.cardBtn} onPress={() => {}}>
               <Image source={profile} style={styles.iconStyle} />
-              <TextComponent text={'My Profile'} styles={styles.titleStyle} />
+              <TextComponent
+                text={'Change Password'}
+                styles={styles.titleStyle}
+              />
               <TextComponent text={'Change'} styles={styles.changeStyle} />
             </Touchable>
           </View>
@@ -123,7 +131,7 @@ const ProfileScreen = ({navigation}) => {
           <Touchable style={styles.cardBtn} onPress={callLogOut}>
             <Image source={login} style={styles.iconStyle} />
             <TextComponent text={'Logout'} styles={styles.titleStyle} />
-            <Icon name="" size={25} color={'black'} style={styles.arrowRight} />
+            <Icon size={25} color={'black'} style={styles.arrowRight} />
           </Touchable>
           <AlertDesign
             isVisible={alert}
@@ -131,7 +139,7 @@ const ProfileScreen = ({navigation}) => {
             onCancel={onCancel}
             title={'Log Out?'}
             message={'Are you sure, you want to log out?'}
-            confirmText={'Yes, I want to'}
+            confirmText={'Yes, Sure'}
           />
           <AlertDesign
             isVisible={deleteAlert}
@@ -139,10 +147,12 @@ const ProfileScreen = ({navigation}) => {
             onConfirm={onDeleteConfirm}
             onCancel={onDeleteCancel}
             title={'Deactivate Account ?'}
-            message={'Deactivating your account will remove all of your information. This can’t be undone.'}
+            message={
+              'Deactivating your account will remove all of your information. This can’t be undone.'
+            }
             confirmText={'Deactivate'}
           />
-         
+
           <ThemeButtonWithIcon
             title={'Delete Account'}
             image={trash}

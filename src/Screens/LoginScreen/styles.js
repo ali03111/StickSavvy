@@ -1,18 +1,17 @@
 import {StyleSheet} from 'react-native';
 import {hp, wp} from '../../Config/responsive';
-import {Colors} from '../../Theme/Variables';
+import {Colors, FontSize} from '../../Theme/Variables';
 
 export const styles = StyleSheet.create({
   logInMain: {
-    paddingTop: hp('6')
+    paddingTop: hp('6'),
   },
-  vectorImg:{
+  vectorImg: {
     position: 'absolute',
     bottom: 10,
     // left: 0,
-    right:0,
-    width: wp('60')
-  
+    right: 0,
+    width: wp('60'),
   },
   // imgCurve: {
   //   height: hp('50'),
@@ -30,18 +29,18 @@ export const styles = StyleSheet.create({
     marginBottom: hp('2'),
     paddingHorizontal: wp('1.5'),
   },
-  linearGradient:{
+  linearGradient: {
     height: hp('30'),
     borderBottomRightRadius: 15,
-    borderBottomLeftRadius: 15,   
+    borderBottomLeftRadius: 15,
     position: 'absolute',
     top: 0,
     left: 0,
-    right: 0
+    right: 0,
   },
   remStyle: {
     color: Colors.white,
-    fontSize: hp('1.8'),
+    fontSize: FontSize.scale16,
     paddingLeft: wp('1'),
   },
   checkContainer: {
@@ -150,7 +149,7 @@ export const styles = StyleSheet.create({
     textAlign: 'right',
     fontSize: hp('1.8'),
     color: Colors.themeRed,
-    fontWeight: '600'
+    fontWeight: '600',
   },
   lockstyle: {
     flex: 0.5,

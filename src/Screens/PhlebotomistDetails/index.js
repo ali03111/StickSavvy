@@ -1,17 +1,18 @@
-import { View, Text, ScrollView, FlatList } from 'react-native'
-import React from 'react'
-import BackHeader from '../../Components/BackHeader'
-import { filterIcon, icon } from '../../Assets'
-import { certifiedPhl } from '../../Utils/localDB'
-import PhlebotomistsCard from '../../Components/PhlebotomistsCard'
-import { styles } from './style'
-import { Colors } from '../../Theme/Variables'
-import { wp, hp } from '../../Config/responsive'
+import {View, Text, ScrollView, FlatList} from 'react-native';
+import React from 'react';
+import BackHeader from '../../Components/BackHeader';
+import {filterIcon, icon} from '../../Assets';
+import {certifiedPhl} from '../../Utils/localDB';
+import PhlebotomistsCard from '../../Components/PhlebotomistsCard';
+import {styles} from './style';
+import {Colors} from '../../Theme/Variables';
+import {wp, hp} from '../../Config/responsive';
 
-export default function PhlebotomistDetails() {
+export default function PhlebotomistDetails({navigation}) {
   const renderItem = ({item, index}) => {
     return (
       <PhlebotomistsCard
+        onPress={() => navigation.navigate('PhlebotomistProfile')}
         cardStyle={{
           backgroundColor: index % 2 == 0 ? Colors.bgLBlue : Colors.bgLPink,
           width: wp('92'),
@@ -27,16 +28,20 @@ export default function PhlebotomistDetails() {
   };
   return (
     <>
-        <ScrollView style={{flex:1, backgroundColor: Colors.white}}>
-        <BackHeader headerTitle={'Details'} isBack={true} rightIcon={filterIcon}/>
+      <ScrollView style={{flex: 1, backgroundColor: Colors.white}}>
+        <BackHeader
+          goBack={() => navigation.goBack()}
+          headerTitle={'Details'}
+          isBack={true}
+          rightIcon={filterIcon}
+        />
         <FlatList
-            data={certifiedPhl}
-            renderItem={renderItem}
-            contentContainerStyle={styles.flatlistStyleOne}
-            keyExtractor={item => item.id}
-          />
-        </ScrollView>
-
+          data={certifiedPhl}
+          renderItem={renderItem}
+          contentContainerStyle={styles.flatlistStyleOne}
+          keyExtractor={item => item.id}
+        />
+      </ScrollView>
     </>
-  )
+  );
 }
