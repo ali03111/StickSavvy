@@ -4,8 +4,6 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import useReduxStore from '../Hooks/UseReduxStore';
 import NavigationService from '../Services/NavigationService';
 import * as Screens from '../Screens/index';
-import MybottomTabs from './bottomNavigation';
-import Orientation from 'react-native-orientation-locker';
 
 const Stack = createNativeStackNavigator();
 
@@ -34,6 +32,10 @@ function MainNavigator() {
         )}
         {!isLogin && (
           <>
+            <Stack.Screen
+              name="SelectScreen"
+              component={Screens.SelectScreen}
+            />
             <Stack.Screen name="LoginScreen" component={Screens.LoginScreen} />
             <Stack.Screen name="HomeScreen" component={Screens.HomeScreen} />
             <Stack.Screen
@@ -44,16 +46,11 @@ function MainNavigator() {
               name="PhlebotomistProfile"
               component={Screens.PhlebotomistProfile}
             />
-
             <Stack.Screen
               name="ReviewAddScreen"
               component={Screens.ReviewAdd}
             />
 
-            <Stack.Screen
-              name="SelectScreen"
-              component={Screens.SelectScreen}
-            />
             <Stack.Screen
               name="SettingScreen"
               component={Screens.SeetingScreen}
@@ -70,11 +67,6 @@ function MainNavigator() {
               name="RegisterScreen"
               component={Screens.RegisterScreen}
             />
-
-            {/* <Stack.Screen
-              name="ForgetPasswordScreen"
-              component={Screens.ForgetPasswordScreen}
-            /> */}
           </>
         )}
         {isLogin && (
