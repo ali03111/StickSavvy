@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "631924608918",
+    "firebase_url": "https://sticksavvy-default-rtdb.firebaseio.com",
+    "project_id": "sticksavvy",
+    "storage_bucket": "sticksavvy.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:631924608918:android:c0e942e92fd315744a97b7",
+        "android_client_info": {
+          "package_name": "com.sticksavvy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "631924608918-1q7h89bi8drpv6v9qglovivmib5phcsq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_JHo1GAPJ5f8ipxBQoNZ1iP6MXCOayFg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "631924608918-1q7h89bi8drpv6v9qglovivmib5phcsq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -55,11 +55,11 @@ const loginSaga = function* ({payload: {datas, type}}) {
         // }
         const {data, ok} = yield call(registerService, {
           token: jwtToken,
-          name: datas?.name,
+          first_name: datas?.first_name,
           last_name: datas?.last_name,
           email: datas?.email,
           password: datas?.password,
-          phone: datas?.number,
+          // phone: datas?.number,
           // company_name: datas?.company_name,
         });
         console.log('data=========>>>>>>>', data);

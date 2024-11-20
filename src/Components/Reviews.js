@@ -1,31 +1,31 @@
 import {View, Text, Image, StyleSheet} from 'react-native';
-import React from 'react';
+import React, { useState } from 'react';
 import {hp, wp} from '../Config/responsive';
-import {userImage} from '../Assets';
 import {TextComponent} from './TextComponent';
 import {Colors} from '../Theme/Variables';
+import {imageURL} from '../Utils/Urls';
+import {userImage, username} from '../Assets';
 
-export default function Reviews({date, userImage, userName, reviewText}) {
+export default function Reviews({date, user, reviewText}) {
+  const [imageUri, setImageUri] = useState(imageURL + user?.profile_image);
+
   return (
-    <>
-      <View style={styles.reviewCard}>
-        <TextComponent text={date} styles={styles.dateStyle} />
-        <View
-          style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            marginBottom: hp('1'),
-          }}>
-          <Image
-            source={userImage}
-            resizeMode="contain"
-            style={styles.imgStyle}
-          />
-          <TextComponent text={userName} styles={styles.reviewTitle} />
-        </View>
-        <TextComponent text={reviewText} styles={styles.reviewText} />
+    <View style={styles.reviewCard}>
+      <TextComponent text={date} styles={styles.dateStyle} />
+      <View style={styles.userContainer}>
+        <Image
+          source={imageUri ? { uri: imageUri } : userImage} // Fallback to placeholder
+          resizeMode="cover"
+          style={styles.imgStyle}
+          onError={() => setImageUri(null)} // Handle image load error
+        />
+        <TextComponent
+          text={`${user?.first_name || ''} ${user?.last_name || ''}`} // Handle missing names
+          styles={styles.reviewTitle}
+        />
       </View>
-    </>
+      <TextComponent text={reviewText} styles={styles.reviewText} />
+    </View>
   );
 }
 
@@ -34,6 +34,11 @@ const styles = StyleSheet.create({
     width: wp('8'),
     height: hp('5'),
     borderRadius: 10,
+  },
+  userContainer: {
+    flexDirection: 'row', // Align items in a row
+    alignItems: 'center',
+    marginBottom: hp('1'),
   },
   reviewTitle: {
     color: Colors.secondary,
@@ -47,10 +52,11 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     paddingHorizontal: wp('3'),
     paddingVertical: hp('2'),
-    width: '100%',
+    flex: 1, // Use flex: 1 instead of width: '100%'
     position: 'relative',
-    marginBottom: hp('1')
+    marginBottom: hp('1'),
   },
+
   reviewText: {
     color: Colors.textColor,
     fontSize: hp('1.5'),

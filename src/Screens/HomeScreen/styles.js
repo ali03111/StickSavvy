@@ -19,6 +19,10 @@ export const styles = StyleSheet.create({
     marginTop: hp('4'),
     marginBottom: hp('4'),
   },
+  searchTextStyle:{
+    width: wp('68'),
+    color: Colors.black
+  },
   subscribeCard:{
     borderRadius: 15,
     backgroundColor: Colors.white,  
@@ -57,7 +61,7 @@ export const styles = StyleSheet.create({
     fontSize: hp('1.5')
   },
   imgStyle:{
-    width: wp('10'),
+    width: wp('8'),
     height: hp('5'),
     marginRight: wp('2')
   },
@@ -82,7 +86,7 @@ export const styles = StyleSheet.create({
     borderRadius: 15,
     width: wp('78'),
     flexDirection: 'row',
-    justifyContent: 'flex-start',
+    justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: wp('2')
   },
@@ -95,7 +99,9 @@ export const styles = StyleSheet.create({
     marginLeft: wp('2'),
   },
   searchText:{
-    color: Colors.lightGray
+    color: Colors.lightGray,
+    width: wp('65%'),
+    backgroundColor: 'red'
   },
   firstView: {
     flexDirection: 'row',

@@ -4,26 +4,49 @@ import {marker, star, userImage} from '../Assets';
 import {TextComponent} from './TextComponent';
 import {Colors} from '../Theme/Variables';
 import {hp, wp} from '../Config/responsive';
-
+import {useNavigation} from '@react-navigation/native';
+import {Touchable} from './Touchable';
 
 export default function PhlebotomistsCard({
-    image, name, ratings, location, cardStyle
+  image,
+  name,
+  ratings,
+  location,
+  cardStyle,
+  profileId,
+  isRight,
 }) {
+  const navigation = useNavigation(); // use navigation hook
+
+  const handlePress = () => {
+    console.log('Navigating to profile with ID:', profileId);
+    if (profileId) {
+      navigation.navigate('PhlebotomistProfile', {profileId});
+    } else {
+      console.error('Profile ID is missing');
+    }
+  };
   return (
-    <View style={{...styles.cardMain, ...cardStyle}}>
-      <Image source={image} resizeMode="cover" style={styles.userImg} />
+    <View
+      style={[
+        styles.cardMain,
+        isRight ? {marginRight: wp('2')} : {marginBottom: wp('2')},
+      ]}>
+      <Image source={{uri: image}} resizeMode="cover" style={styles.userImg} />
       <View style={{width: wp('70')}}>
-        <View style={styles.flexBetween}>
-          <TextComponent text={name} styles={styles.heading}/>
-          <View style={styles.flexDirection}>
-            <Image source={star} resizeMode="contain" style={styles.star} />
-            <TextComponent text={ratings} styles={styles.text}/>
+        <Touchable onPress={handlePress}>
+          <View style={styles.flexBetween}>
+            <TextComponent text={name} styles={styles.heading} />
+            <View style={styles.flexDirection}>
+              <Image source={star} resizeMode="contain" style={styles.star} />
+              <TextComponent text={ratings} styles={styles.text} />
+            </View>
           </View>
-        </View>
-        <View style={styles.flexDirection}>
-          <Image source={marker} resizeMode="contain" style={styles.star} />
-          <TextComponent text={location} styles={styles.text} />
-        </View>
+          <View style={styles.flexDirection}>
+            <Image source={marker} resizeMode="contain" style={styles.star} />
+            <TextComponent text={location} styles={styles.text} />
+          </View>
+        </Touchable>
       </View>
     </View>
   );
@@ -33,7 +56,7 @@ const styles = StyleSheet.create({
   cardMain: {
     backgroundColor: Colors.bgLBlue,
     width: wp('90'),
-    marginRight: wp('2'),
+    // marginRight: wp('2'),
     borderRadius: 10,
     flexDirection: 'row',
     alignItems: 'center',
@@ -46,7 +69,7 @@ const styles = StyleSheet.create({
     width: wp('12'),
     height: hp('6'),
     borderRadius: 12,
-    marginRight: wp('2')
+    marginRight: wp('2'),
     // backgroundColor: 'red'
   },
   flexStart: {
@@ -67,13 +90,13 @@ const styles = StyleSheet.create({
     width: wp('4'),
     marginRight: wp('1'),
   },
-  text:{
+  text: {
     color: Colors.textColor,
     fontSize: hp('1.5'),
   },
-  heading:{
+  heading: {
     color: Colors.heading,
     fontSize: hp('1.8'),
     fontWeight: '500',
-  }
+  },
 });

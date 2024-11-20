@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
     backgroundColor: Colors.white,
   },
   innerWrapper: {
-    paddingHorizontal: wp('4'),
+    paddingHorizontal: wp('3'),
     marginTop: hp('4'),
     alignItems: 'center',
   },
@@ -23,7 +23,13 @@ export const styles = StyleSheet.create({
     fontWeight: '700',
     marginVertical: hp('2'),
     fontFamily: Family.fontBold,
-
+  },
+  starsContainer: {
+    flexDirection: 'row',
+    marginBottom: 20,
+  },
+  starTouchable: {
+    marginRight: 10,
   },
   userAboutText: {
     color: Colors.textColor,

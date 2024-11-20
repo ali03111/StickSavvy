@@ -13,7 +13,7 @@ import {
   login,
   logout,
   profile,
-  trash,
+  lock,
 } from '../../Assets';
 import {hp, wp} from '../../Config/responsive';
 import {Touchable} from '../../Components/Touchable';
@@ -22,11 +22,15 @@ import {AlertDesign} from '../../Components/AlertDesign';
 import BackHeader from '../../Components/BackHeader';
 import ThemeButton from '../../Components/ThemeButton';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
+import {InputComponent} from '../../Components/InputComponent';
+import useChangePasswordScreen from './useChangePasswordScreen';
 
 const ChangePassword = ({navigation}) => {
-  const [ currentPass, setCurrentPass] = useState('');
-  const [ newPass, setNewPass] = useState('');
-  const [ reTypeNewPass, setReTypeNewPass] = useState('');
+  const {handleSubmit, errors, reset, control, getValues, changePassword} =
+    useChangePasswordScreen(navigation);
+  const [currentPass, setCurrentPass] = useState('');
+  const [newPass, setNewPass] = useState('');
+  const [reTypeNewPass, setReTypeNewPass] = useState('');
   return (
     <>
       {/* <HeaderComponent title={'Settings'} goBack={() => navigation.goBack()}  /> */}
@@ -51,76 +55,51 @@ const ChangePassword = ({navigation}) => {
           />
           <View style={{marginTop: hp('3'), marginBottom: hp('5')}}>
             <TextComponent
-              text={'Current Password'}
-              styles={styles.userPassStyleLabel}
-            />
-            <Touchable style={{...styles.cardBtn, marginBottom: hp('6')}} onPress={() => {}}>
-              <Image source={locksetting} style={styles.iconStyle} />
-              {/* <TextComponent text={'My Profile'} styles={styles.titleStyle} /> */}
-              <TextInput
-                style={styles.titleStyle}
-                placeholder="********"
-                placeholderTextColor={Colors.black}
-                value={currentPass}
-                onChange={(e) => {
-                  setCurrentPass(e.target.value)
-                  // console.log(currentPass);
-                }}
-              />
-              <Image
-                source={eye}
-                resizeMode="contain"
-                style={styles.chevronStyle}
-              />
-            </Touchable>
-
-            <TextComponent
               text={'New Password'}
               styles={styles.userPassStyleLabel}
             />
-            <Touchable style={styles.cardBtn} onPress={() => {}}>
-              <Image source={locksetting} style={styles.iconStyle} />
-              <TextInput
-                style={styles.titleStyle}
-                placeholder="********"
-                placeholderTextColor={Colors.black}
-                value={newPass}
-                onChange={(e) => {
-                  setNewPass(e.target.value);
-                }}
-              />
-
-              <Image
-                source={eye}
-                resizeMode="contain"
-                style={styles.chevronStyle}
-              />
-            </Touchable>
+            <InputComponent
+              {...{
+                name: 'password',
+                handleSubmit,
+                errors,
+                reset,
+                control,
+                getValues,
+                placeholder: 'Old Password',
+                isImage: lock,
+                defaultValue: '',
+                isSecure: true,
+                isImage: locksetting,
+                inputIconStyle: styles.lockstyle,
+              }}
+            />
             <TextComponent
               text={'Re-type New Password'}
               styles={styles.userPassStyleLabel}
             />
-            <Touchable style={styles.cardBtn} onPress={() => {}}>
-              <Image source={locksetting} style={styles.iconStyle} />
-              <TextInput
-                style={styles.titleStyle}
-                placeholder="********"
-                placeholderTextColor={Colors.black}
-                value={reTypeNewPass}
-                onChange={(e) => {
-                  setReTypeNewPass(e.target.value)
-                }}
-              />
-
-              <Image
-                source={eye}
-                resizeMode="contain"
-                style={styles.chevronStyle}
-              />
-            </Touchable>
+            <InputComponent
+              {...{
+                name: 'new_password',
+                handleSubmit,
+                errors,
+                reset,
+                control,
+                getValues,
+                placeholder: 'New Password',
+                isImage: lock,
+                defaultValue: '',
+                isSecure: true,
+                isImage: locksetting,
+                inputIconStyle: styles.lockstyle,
+              }}
+            />
           </View>
 
-          <ThemeButton title={'Change'} />
+          <ThemeButton
+            onPress={handleSubmit(changePassword)}
+            title={'Change Password'}
+          />
         </View>
       </ScrollView>
     </>

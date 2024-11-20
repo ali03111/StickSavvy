@@ -15,8 +15,8 @@ const loginService = param => API.post(loginUrl, param);
 /**
  * The `registerService` function sends a POST request to a specified URL with the provided parameter.
  */
-// const registerService = param => API.post(registerUrl, param);
-const registerService = param => API.post(firebaseSignup, param);
+const registerService = param => API.post(registerUrl, param);
+// const registerService = param => API.post(firebaseSignup, param);
 
 /**
  * The `logoutService` function is an asynchronous function that sends a GET request to the `logoutUrl`

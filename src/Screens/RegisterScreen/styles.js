@@ -82,7 +82,7 @@ export const styles = StyleSheet.create({
   },
   socialIcons: {
     width: wp('15'),
-    height: hp('7.5'),
+    height: hp('8.5'),
     backgroundColor: 'white',
     borderRadius: 50,
     justifyContent: 'center',
@@ -190,9 +190,9 @@ export const styles = StyleSheet.create({
     marginTop: wp('8'),
   },
   ProfileImage: {
-    // width: wp('20'),
-    height: hp('15'),
+    width: wp('30'),
+    height: hp('17'),
     aspectRatio: 1,
-    resizeMode: 'contain',
+    resizeMode: 'cover',
   },
 });

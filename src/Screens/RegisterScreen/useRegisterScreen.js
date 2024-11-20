@@ -1,12 +1,12 @@
 import {useState} from 'react';
-import {loginUser} from '../../Redux/Action/AuthAction';
+import {loginUser, registerUser} from '../../Redux/Action/AuthAction';
 import useReduxStore from '../../Hooks/UseReduxStore';
 import {errorMessage} from '../../Config/NotificationMessage';
 
 const {default: useFormHook} = require('../../Hooks/UseFormHooks');
 const {default: Schemas} = require('../../Utils/Validation');
 import ImagePicker from 'react-native-image-crop-picker';
-import { androidCameraPermission } from '../../Utils/permissions';
+import {androidCameraPermission} from '../../Utils/permissions';
 
 /**
  * The function `useRegister` handles form submission, user registration, navigation, and policy
@@ -26,31 +26,36 @@ const useRegister = ({navigate, goBack}) => {
     setRemember(!remember);
   };
 
-  // const signUpButton = ({
-  //   name,
-  //   last_name,
-  //   email,
-  //   number,
-  //   password,
-  //   confirm_password,
-  //   company_name,
-  // }) => {
-  //   // if (!policy) {
-     
-  //   // } else errorMessage('Please agree terms & conditions.');
+  const socialLoginFun = type => {
+    dispatch(loginUser({type, datas: {}}));
+  };
 
-  //   dispatch(
-  //     loginUser({
-  //       type: 'email',
-  //       datas: {name, email, number, password, company_name, last_name},
-  //     }),
-  //   );
-  // };
+  const signUpButton = ({
+    first_name,
+    last_name,
+    email,
+    // number,
+    password,
+    confirm_password,
+    // company_name,
+  }) => {
+    // if (!policy) {
+
+    // } else errorMessage('Please agree terms & conditions.');
+    console.log({first_name, email, password, last_name, profileData});
+    dispatch(
+      loginUser({
+        type: 'email',
+        datas: {first_name, email, password, last_name, profileData},
+      }),
+    );
+    // navigate('LoginScreen');
+  };
+
   const loginNav = () => {
-    navigate('LoginScreen')
-    console.log('loginNav Clicked')
-   } ;
-  
+    navigate('LoginScreen');
+    console.log('loginNav Clicked');
+  };
 
   // const [policy, setPolicy] = useState(true);
 
@@ -79,11 +84,20 @@ const useRegister = ({navigate, goBack}) => {
     });
   };
 
-  const registerWithEmail = ({first_name, email, password, last_name, phone}) => {
-    console.log({first_name, email, password, last_name, phone})
+  const registerWithEmail = ({
+    first_name,
+    email,
+    password,
+    last_name,
+    phone,
+  }) => {
+    console.log({first_name, email, password, last_name, phone});
 
     dispatch(
-      registerUser({type: 'email', datas: {first_name, email, password, last_name, phone}}),
+      registerUser({
+        type: 'email',
+        datas: {first_name, email, password, last_name, phone},
+      }),
     );
   };
 
@@ -101,10 +115,11 @@ const useRegister = ({navigate, goBack}) => {
     rememberValue,
     goBack,
     loginNav,
-    // signUpButton,
+    signUpButton,
     registerWithEmail,
     onSelectImage,
-    profileData
+    profileData,
+    socialLoginFun,
     // PolicyValue,
     // policy,
   };

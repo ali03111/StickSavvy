@@ -23,6 +23,7 @@ import {
   user,
   vector,
   cameraIcon,
+  profile,
 } from '../../Assets';
 import {InputComponent} from '../../Components/InputComponent';
 import {Controller} from 'react-hook-form';
@@ -33,10 +34,9 @@ import {LoginBg} from '../../Assets';
 import {hp, wp} from '../../Config/responsive';
 import LinearGradient from 'react-native-linear-gradient';
 import BlurImage from '../../Components/BlurImage';
-import { imageUrl } from '../../Utils/Urls';
+import {imageUrl} from '../../Utils/Urls';
 
-
-const RegisterScreen = ({navigation}) => {
+const RegisterScreen = ({navigation, route}) => {
   const {
     handleSubmit,
     errors,
@@ -45,11 +45,13 @@ const RegisterScreen = ({navigation}) => {
     getValues,
     goBack,
     loginNav,
-    // signUpButton,
+    signUpButton,
     registerWithEmail,
+    socialLoginFun,
     profileData,
-    onSelectImage
+    onSelectImage,
   } = useRegister(navigation);
+
   return (
     <>
       <ScrollView style={styles.ImgBg}>
@@ -64,12 +66,12 @@ const RegisterScreen = ({navigation}) => {
           <View style={styles.profileImageContainer}>
             <BlurImage
               blurhash={'LKK1wP_3yYIU4.jsWrt7_NRjMdt7'}
-              radius={75}
+              radius={100}
               styles={styles.ProfileImage}
               uri={
                 // isIOS
                 //   ? profileData?.path || imageUrl(profile_picture) :
-                profileData?.path 
+                profileData?.path
               }
             />
           </View>
@@ -81,11 +83,15 @@ const RegisterScreen = ({navigation}) => {
               left: wp('55'),
               bottom: hp('0'),
               borderRadius: 100,
-              backgroundColor:"#ffffff",
+              backgroundColor: '#ffffff',
               padding: 5,
             }}
             Opacity={0.8}>
-            <Image source={cameraIcon || null} style={styles.addImageIcon} resizeMode='contain'/>
+            <Image
+              source={cameraIcon || null}
+              style={styles.addImageIcon}
+              resizeMode="contain"
+            />
           </Touchable>
         </View>
 
@@ -106,7 +112,7 @@ const RegisterScreen = ({navigation}) => {
                   control,
                   getValues,
                   placeholder: 'First Name',
-                  isImage: user,
+                  isImage: profile,
                   defaultValue: '',
                   handleSubmit,
                   errors,
@@ -125,7 +131,7 @@ const RegisterScreen = ({navigation}) => {
                   getValues,
                   placeholder: 'Last Name',
                   defaultValue: '',
-                  isImage: user,
+                  isImage: profile,
                 }}
               />
 
@@ -174,12 +180,15 @@ const RegisterScreen = ({navigation}) => {
               />
 
               <View style={{paddingTop: hp('3')}}>
-                {/* <ThemeButton onPress={handleSubmit(loginUser)} title={'Log In'} /> */}
                 <ThemeButton
+                  onPress={handleSubmit(signUpButton)}
+                  title={'Sign Up'}
+                />
+                {/* <ThemeButton
                   onPress={() => navigation.navigate('HomeScreen')}
                   title={'Register'}
                   // onPress={handleSubmit(registerWithEmail)}
-                />
+                /> */}
               </View>
             </View>
 
@@ -189,7 +198,9 @@ const RegisterScreen = ({navigation}) => {
               <View style={styles.barLine}></View>
             </View>
             <View style={styles.social}>
-              <Touchable style={styles.socialIcons}>
+              <Touchable
+                style={styles.socialIcons}
+                onPress={() => socialLoginFun('Google')}>
                 <Image
                   source={google}
                   style={styles.socialImage}
@@ -221,7 +232,6 @@ const RegisterScreen = ({navigation}) => {
                 <Text style={styles.signUpText}>Log In</Text>
               </Touchable>
             </View>
-           
           </View>
         </KeyBoardWrapper>
       </ScrollView>

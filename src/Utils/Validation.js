@@ -4,7 +4,7 @@ import * as yup from 'yup';
 const passwordSchema = {
   password: yup
     .string()
-    .required('Please Enter your password.')
+    .required('Please enter your password.')
     .max(25, 'Password must be less than 25 characters.')
     .matches(
       /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
@@ -31,14 +31,14 @@ const signUpschema = yup.object().shape({
       'Please enter valid email.',
     ),
 
-  name: yup
+  first_name: yup
     .string()
     .required('Please enter your first name.')
     .max(100, 'Name must be less than 100 characters.')
     .matches(/^[A-Za-z ]*$/, 'Please enter valid name.')
     .min(2, 'Name must be atleast 2 characters.')
     .max(50, 'Name must be of 50 characters.'),
-  company_name: yup.string(),
+  // company_name: yup.string(),
   last_name: yup
     .string()
     .matches(/^[A-Za-z ]*$/, 'Please enter valid last name.'),
@@ -54,7 +54,7 @@ const logInUpschema = yup.object().shape({
       /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
       'Please enter valid email.',
     ),
-  password: yup.string().required('Please Enter your password.'),
+  password: yup.string().required('Please enter your password.'),
 });
 const forgotSchema = yup.object().shape({
   email: yup
@@ -95,7 +95,7 @@ const addUsernameScheme = yup.object().shape({
 });
 
 const editProfileScheme = yup.object().shape({
-  name: yup
+  first_name: yup
     .string()
     .required('Please enter your first name.')
     .max(100, 'Name must be less than 100 characters.')
@@ -103,16 +103,6 @@ const editProfileScheme = yup.object().shape({
     .min(2, 'Name must be atleast 2 characters.')
     .max(50, 'Name must be of 50 characters.'),
   last_name: yup.string().required('Please enter your last name.'),
-  company_name: yup
-    .string()
-    .required('Please enter your Company Name.')
-    .max(100, 'Name must be less than 100 characters.')
-    .min(2, 'Name must be atleast 2 characters.')
-    .max(50, 'Name must be of 50 characters.'),
-  email: yup
-    .string()
-    .email('Email must be valid.')
-    .required('Please enter your email.'),
 });
 const demoKitSchema = yup.object().shape({
   email: yup

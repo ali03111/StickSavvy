@@ -121,4 +121,7 @@ export const styles = StyleSheet.create({
     width: '100%',
    textAlign: 'left',
   },
+  lockstyle: {
+    flex: 0.5,
+  },
 });

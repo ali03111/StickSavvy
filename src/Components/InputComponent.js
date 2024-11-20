@@ -79,7 +79,7 @@ export const InputComponent = ({
                   source={show ? eye : eyeOff}
                   style={{
                     resizeMode: 'contain',
-                    tintColor: Colors.white,
+                    // tintColor: Colors.white,
                   }}
                 />
               </Touchable>

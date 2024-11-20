@@ -21,7 +21,13 @@ const useLogin = ({navigate, goBack}) => {
     setRemember(!remember);
   };
 
-  const onPress = () => navigate('RegisterScreen');
+  const loginNav = () => {
+    navigate('RegisterScreen');
+  };
+
+  const socialLoginFun = type => {
+    dispatch(loginUser({type, datas: {}}));
+  };
 
   /**
    * The `loginUserFun` function dispatches an action to register a user with the provided email and
@@ -41,8 +47,9 @@ const useLogin = ({navigate, goBack}) => {
     remember,
     setRemember,
     rememberValue,
-    onPress,
+    loginNav,
     loginUser: loginUserFun,
+    socialLoginFun,
   };
 };
 

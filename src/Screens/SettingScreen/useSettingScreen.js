@@ -26,8 +26,7 @@ const useSettingScreen = ({navigate, goBack}) => {
   };
   const callLogOut = () => {
     onCancel();
-
-  }
+  };
   const tabScreen = item => {
     // console.log('fir', item);
     if (item?.screenUrl) {
@@ -41,6 +40,7 @@ const useSettingScreen = ({navigate, goBack}) => {
       // console.log('asd asd');
     }
   };
+ 
   return {onCancel, onConfirm, tabScreen, alert, callLogOut};
 };
 

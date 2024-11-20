@@ -5,6 +5,7 @@ import {logoScreen} from './src/Assets';
 import Overlay from './src/Components/Overlay';
 import useReduxStore from './src/Hooks/UseReduxStore';
 import { Family } from './src/Theme/Variables';
+import {GoogleSignin} from '@react-native-google-signin/google-signin';
 
 const App = () => {
   const [isVisible, setIsVisible] = useState(true);
@@ -19,6 +20,14 @@ const App = () => {
   };
 
   useEffect(async () => {
+    GoogleSignin.configure({
+      iosClientId:
+        '664658424087-lcsk0ihine61evfk8n3umt9c5ot3j0ao.apps.googleusercontent.com',
+      webClientId:
+        Platform.OS == 'ios'
+          ? '664658424087-lcsk0ihine61evfk8n3umt9c5ot3j0ao.apps.googleusercontent.com'
+          : '631924608918-1q7h89bi8drpv6v9qglovivmib5phcsq.apps.googleusercontent.com',
+    });
     (async () => {
       LogBox.ignoreLogs([
         'VirtualizedLists should never be nested',

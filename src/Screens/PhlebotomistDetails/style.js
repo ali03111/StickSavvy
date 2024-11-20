@@ -7,6 +7,7 @@ export const styles = StyleSheet.create({
  
   flatlistStyleOne:{
     marginTop: hp('3'),
+    alignSelf: 'center'
   },
   
 });

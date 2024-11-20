@@ -43,6 +43,8 @@ const LoginScreen = ({navigation}) => {
     facebookLoginFunc,
     rememberValue,
     remember,
+    socialLoginFun,
+    loginNav
   } = useLogin(navigation);
   return (
     <View style={styles.ImgBg}>
@@ -100,11 +102,11 @@ const LoginScreen = ({navigation}) => {
               />
             </View>
             <View style={{paddingTop: hp('3')}}>
-              {/* <ThemeButton onPress={handleSubmit(loginUser)} title={'Log In'} /> */}
-              <ThemeButton
+              <ThemeButton onPress={handleSubmit(loginUser)} title={'Log In'} />
+              {/* <ThemeButton
                 onPress={() => navigation.navigate('HomeScreen')}
                 title={'Log In'}
-              />
+              /> */}
             </View>
           </View>
 
@@ -114,7 +116,8 @@ const LoginScreen = ({navigation}) => {
             <View style={styles.barLine}></View>
           </View>
           <View style={styles.social}>
-            <Touchable style={styles.socialIcons}>
+            <Touchable style={styles.socialIcons} 
+            onPress={() => socialLoginFun('Google')}>
               <Image
                 source={google}
                 style={styles.socialImage}
@@ -142,8 +145,8 @@ const LoginScreen = ({navigation}) => {
               text={'Don’t have an account?'}
               styles={styles.dontHaveText}
             />
-            <Touchable onPress={onPress}>
-              <Text style={styles.signUpText}>Sign Up</Text>
+            <Touchable onPress={loginNav}>
+              <Text style={styles.signUpText} >Sign up</Text>
             </Touchable>
           </View>
           <Image resizeMode='contain' source={vector} style={styles.vectorImg}/>

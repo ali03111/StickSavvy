@@ -1,11 +1,12 @@
 import React from 'react';
-import {StyleSheet,  Image, View, Platform} from 'react-native';
+import {StyleSheet, Image, View, Platform} from 'react-native';
 import {TextComponent} from './TextComponent';
 import {Touchable} from './Touchable';
 import {backIcon, filterIcon} from '../Assets';
 import {hp, wp} from '../Config/responsive';
 import {Colors, Family} from '../Theme/Variables';
 import AppStatusBar from './AppBarStatus';
+import {useNavigation} from '@react-navigation/native';
 
 const BackHeader = ({
   headerTitle,
@@ -22,13 +23,27 @@ const BackHeader = ({
   rightIconStyle,
   rightIcon,
   onRightPress,
-  saveResetText
+  saveResetText,
 }) => {
+  const navigation = useNavigation(); // Get navigation object
+
+  // Function to handle the back navigation
+  const handleBackPress = () => {
+    if (isBack) {
+      navigation.goBack(); // Go back to the previous screen
+    }
+  };
   return (
     <View style={[styles.TopHeader, {...style}]}>
-    <AppStatusBar backgroundColor={Colors.secondary} barStyle="light-content" />
+      <AppStatusBar
+        backgroundColor={Colors.secondary}
+        barStyle="light-content"
+      />
       <View style={styles.HeaderLeft}>
-        <Touchable onPress={goBack} style={styles.backMain} disabled={!isBack}>
+        <Touchable
+          onPress={handleBackPress}
+          style={styles.backMain}
+          disabled={!isBack}>
           {isBack && (
             <Image
               source={backIcon}
@@ -92,7 +107,7 @@ const styles = StyleSheet.create({
     marginLeft: wp('1.5'),
     color: Colors.white,
     fontSize: hp('2'),
-    lineHeight: hp('2')
+    lineHeight: hp('2'),
   },
   HeaderTitle: {
     fontSize: hp('2.5'),
@@ -126,7 +141,6 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
     height: hp('3'),
     marginLeft: wp('2'),
-    
   },
   styleCheck: {
     alignItems: 'center',

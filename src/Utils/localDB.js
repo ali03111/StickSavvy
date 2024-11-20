@@ -348,13 +348,13 @@ export const settingData = [
   {
     title: 'My Profile',
     image: profile,
-    screenUrl: 'MyProfileScreen',
+    screenUrl: 'EditProfileScreen',
   },
-  {
-    title: 'dinojames@StickSavvy.com',
-    image: sms,
-    screenUrl: ' ',
-  },
+  // {
+  //   title: 'dinojames@StickSavvy.com',
+  //   image: sms,
+  //   screenUrl: ' ',
+  // },
   {
     title: 'Change Password',
     image: locksetting,

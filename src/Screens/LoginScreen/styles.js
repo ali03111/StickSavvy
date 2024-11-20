@@ -75,7 +75,7 @@ export const styles = StyleSheet.create({
   },
   socialIcons: {
     width: wp('15'),
-    height: hp('7.5'),
+    height: hp('8.5'),
     backgroundColor: 'white',
     borderRadius: 50,
     justifyContent: 'center',
