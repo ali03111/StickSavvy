@@ -12,3 +12,4 @@ export {default as ProfileScreen} from './ProfileScreen';
 export {default as ReviewAdd} from './ReviewAdd';
 export {default as EditProfileScreen} from './EditProfileScreen';
 export {default as SearchResultsScreen} from './SearchResultScreen';
+export {default as ForgetPasswordScreen} from './ForgotPasswordScreen';

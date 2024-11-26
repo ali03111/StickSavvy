@@ -161,3 +161,6 @@ export const emailLogin = async ({email, password}) => {
   const data = await auth().signInWithEmailAndPassword(email, password);
   return data;
 };
+
+export const forgotPasswordServices = async email =>
+  auth().sendPasswordResetEmail(email);

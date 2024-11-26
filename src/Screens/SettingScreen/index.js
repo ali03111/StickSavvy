@@ -31,7 +31,7 @@ const SettingScreen = ({navigation}) => {
         <BackHeader
           isBack={true}
           headerTitle={'Setting'}
-          saveResetText={'Cancel'}
+          // saveResetText={'Cancel'}
         />
         <View style={styles.catMain}>
         <TextComponent text={'General'} styles={styles.headingStyle} />

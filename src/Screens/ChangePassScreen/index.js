@@ -39,7 +39,7 @@ const ChangePassword = ({navigation}) => {
         <BackHeader
           isBack={true}
           headerTitle={'Change Password'}
-          saveResetText={'Cancel'}
+          // saveResetText={'Cancel'}
         />
         <View style={styles.catMain}>
           <TextComponent
@@ -55,7 +55,7 @@ const ChangePassword = ({navigation}) => {
           />
           <View style={{marginTop: hp('3'), marginBottom: hp('5')}}>
             <TextComponent
-              text={'New Password'}
+              text={'Old Password'}
               styles={styles.userPassStyleLabel}
             />
             <InputComponent
@@ -75,7 +75,7 @@ const ChangePassword = ({navigation}) => {
               }}
             />
             <TextComponent
-              text={'Re-type New Password'}
+              text={'New Password'}
               styles={styles.userPassStyleLabel}
             />
             <InputComponent

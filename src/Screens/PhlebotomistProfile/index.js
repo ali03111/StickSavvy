@@ -81,7 +81,7 @@ export default function PhlebotomistProfile({navigation}) {
       <ScrollView style={styles.container}>
         <BackHeader
           isBack={true}
-          rightIcon={icon}
+          // rightIcon={icon}
           headerTitle={'Phlebotomist Profile'}
         />
         <View style={styles.innerWrapper}>

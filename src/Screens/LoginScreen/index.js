@@ -44,7 +44,8 @@ const LoginScreen = ({navigation}) => {
     rememberValue,
     remember,
     socialLoginFun,
-    loginNav
+    loginNav,
+    forgotNavigate
   } = useLogin(navigation);
   return (
     <View style={styles.ImgBg}>
@@ -98,7 +99,7 @@ const LoginScreen = ({navigation}) => {
               <TextComponent
                 text={'Forgot Password?'}
                 styles={styles.forgetText}
-                onPress={() => navigation.navigate('ForgetPasswordScreen')}
+                onPress={forgotNavigate}
               />
             </View>
             <View style={{paddingTop: hp('3')}}>
@@ -146,7 +147,7 @@ const LoginScreen = ({navigation}) => {
               styles={styles.dontHaveText}
             />
             <Touchable onPress={loginNav}>
-              <Text style={styles.signUpText} >Sign up</Text>
+              <Text style={styles.signUpText}>Sign up</Text>
             </Touchable>
           </View>
           <Image resizeMode='contain' source={vector} style={styles.vectorImg}/>

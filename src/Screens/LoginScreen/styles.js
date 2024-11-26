@@ -150,7 +150,7 @@ export const styles = StyleSheet.create({
     textAlign: 'right',
     fontSize: hp('1.8'),
     color: Colors.themeRed,
-    fontWeight: '600'
+    fontWeight: '600',
   },
   lockstyle: {
     flex: 0.5,
@@ -170,7 +170,7 @@ export const styles = StyleSheet.create({
     fontSize: hp('2'),
     fontWeight: '400',
     color: Colors.gray,
-    marginRight: wp('4'),
+    marginRight: wp('2'),
   },
   signUpText: {
     color: Colors.themeRed,

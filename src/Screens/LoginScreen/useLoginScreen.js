@@ -28,7 +28,9 @@ const useLogin = ({navigate, goBack}) => {
   const socialLoginFun = type => {
     dispatch(loginUser({type, datas: {}}));
   };
-
+  const forgotNavigate = () => {
+    navigate('ForgetPasswordScreen');
+  };
   /**
    * The `loginUserFun` function dispatches an action to register a user with the provided email and
    * password.
@@ -50,6 +52,7 @@ const useLogin = ({navigate, goBack}) => {
     loginNav,
     loginUser: loginUserFun,
     socialLoginFun,
+    forgotNavigate,
   };
 };
 

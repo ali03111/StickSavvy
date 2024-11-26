@@ -37,7 +37,10 @@ function MainNavigator() {
           <>
             {/* <Stack.Screen name="SelectScreen" component={Screens.SelectScreen} /> */}
             <Stack.Screen name="LoginScreen" component={Screens.LoginScreen} />
-
+            <Stack.Screen
+              name="ForgetPasswordScreen"
+              component={Screens.ForgetPasswordScreen}
+            />
             {/* <Stack.Screen name="PhlebotomistProfile" component={Screens.PhlebotomistProfile} />
             <Stack.Screen name="HomeScreen" component={Screens.HomeScreen} /> */}
             {/* <Stack.Screen
@@ -58,11 +61,6 @@ function MainNavigator() {
               name="RegisterScreen"
               component={Screens.RegisterScreen}
             />
-
-            {/* <Stack.Screen
-              name="ForgetPasswordScreen"
-              component={Screens.ForgetPasswordScreen}
-            /> */}
           </>
         )}
         {isLogin && (
@@ -98,7 +96,7 @@ function MainNavigator() {
               name="ChangePasswordScreen"
               component={Screens.ChangePassword}
             />
-           
+            
 
             {/* <Stack.Screen
               name="SkeletonScreen"
