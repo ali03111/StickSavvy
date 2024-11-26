@@ -23,6 +23,7 @@ export default function PhlebotomistDetails() {
   const renderItem = ({item, index}) => {
     return (
       <PhlebotomistsCard
+        onPress={() => navigation.navigate('PhlebotomistProfile')}
         cardStyle={{
           backgroundColor: index % 2 == 0 ? Colors.bgLBlue : Colors.bgLPink,
         }}
@@ -38,7 +39,7 @@ export default function PhlebotomistDetails() {
   return (
     <>
         <ScrollView style={{flex:1, backgroundColor: Colors.white}}>
-        <BackHeader headerTitle={'Details'} isBack={true} />
+        <BackHeader headerTitle={'Details'} isBack={true}  />
         <FlatList
             data={data?.data?.doctors}
             renderItem={renderItem}
@@ -48,5 +49,5 @@ export default function PhlebotomistDetails() {
         </ScrollView>
 
     </>
-  )
+  );
 }
